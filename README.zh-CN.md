@@ -21,11 +21,10 @@
 
 ## 构建
 
+需要 JDK 17+ 与 Android SDK。使用 Gradle Wrapper(Gradle 9.5,AGP 9.3):
+
 ```sh
-# 使用 Gradle Wrapper(推荐)
 ./gradlew assembleDebug
-# 或使用系统 Gradle
-gradle assembleDebug
 ```
 
 APK 输出位置:

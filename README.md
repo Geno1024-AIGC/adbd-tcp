@@ -24,11 +24,10 @@ port input field.
 
 ## Build
 
+Requires JDK 17+ and the Android SDK. Use the Gradle wrapper (Gradle 9.5, AGP 9.3):
+
 ```sh
-# With the Gradle wrapper (recommended)
 ./gradlew assembleDebug
-# Or with a system Gradle
-gradle assembleDebug
 ```
 
 APK output:
