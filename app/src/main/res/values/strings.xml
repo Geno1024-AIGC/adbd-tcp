@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ADB TCP</string>
+    <string name="port_hint">ADB TCP Port</string>
+    <string name="set_port">Set Port</string>
+    <string name="start_adbd">Start ADBD</string>
+    <string name="stop_adbd">Stop ADBD</string>
+    <string name="refresh">Refresh</string>
+    <string name="port_missing">Enter a port first</string>
+    <string name="port_set">Port set to %1$s. Restart adbd to apply.</string>
+    <string name="unset">unset</string>
+    <string name="status_format">port: %1$s\nadbd: %2$s</string>
+    <string name="su_failed">error %1$d: %2$s</string>
+</resources>
