@@ -14,6 +14,7 @@ public class MainActivity extends Activity {
 
     private static final String PORT_PROP = "service.adb.tcp.port";
     private static final String ADBD_STATE_PROP = "init.svc.adbd";
+    private static final String KEY_PORT = "port";
 
     private EditText portInput;
     private Button setPortButton;
@@ -36,6 +37,12 @@ public class MainActivity extends Activity {
 
         setPortButton.setOnClickListener(v -> setPort());
         toggleButton.setOnClickListener(v -> toggleAdbd());
+
+        String savedPort = getPreferences(MODE_PRIVATE).getString(KEY_PORT, "");
+        if (!savedPort.isEmpty()) {
+            portInput.setText(savedPort);
+            portInput.setSelection(savedPort.length());
+        }
     }
 
     @Override
@@ -51,6 +58,7 @@ public class MainActivity extends Activity {
             return;
         }
         setPortButton.setEnabled(false);
+        getPreferences(MODE_PRIVATE).edit().putString(KEY_PORT, port).apply();
         su("setprop " + PORT_PROP + " " + port, (code, out) -> {
             if (isFinishing()) {
                 return;
