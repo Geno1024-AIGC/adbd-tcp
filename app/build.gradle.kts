@@ -1,3 +1,5 @@
+import com.android.build.api.variant.VariantOutputConfiguration
+
 plugins {
     id("com.android.application")
 }
@@ -23,5 +25,15 @@ android {
         release {
             isMinifyEnabled = false
         }
+    }
+}
+
+androidComponents {
+    onVariants(selector().all()) { variant ->
+        variant.outputs
+            .filter { it.outputType == VariantOutputConfiguration.OutputType.SINGLE }
+            .forEach { output ->
+                output.outputFileName.set("adbd-tcp-v1.0-${variant.buildType}.apk")
+            }
     }
 }
